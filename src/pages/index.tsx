@@ -1,8 +1,30 @@
-import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
+import { useRouter } from "next/router";
+import { useState } from "react";
+import Head from "next/head"
+
+// Styles
+import styles from "@/styles/Home.module.css";
 
 const Home = ({data}: any) => {
-  console.log(data);
+  const router = useRouter();
+  const [title, setTitle] = useState(data.title);
+
+  const refreshData = () => router.replace(router.asPath);
+
+  const changeName = async (e: any) => {
+    e.preventDefault();
+    const res = await fetch("http://localhost:3000/api/title", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({title})
+    });
+    const data = await res.json();
+    console.log(data);
+    refreshData();
+  }
+
   return (
     <>
       <Head>
@@ -13,13 +35,19 @@ const Home = ({data}: any) => {
       </Head>
       <main className={styles.main}>
         ᴅʏɴᴀᴍɪᴄ ғʀᴏɴᴛ
+        <hr className={styles.hr} />
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <form className={styles.form} onSubmit={(e)=>changeName(e)}>
+          <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
+          <input type="submit" hidden />
+        </form>
       </main>
     </>
   )
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  const res = await fetch("http://localhost:3000/api/title");
   const data = await res.json();
 
   return {
