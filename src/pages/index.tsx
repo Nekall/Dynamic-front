@@ -36,7 +36,6 @@ const Home = ({data}: any) => {
       <main className={styles.main}>
         ᴅʏɴᴀᴍɪᴄ ғʀᴏɴᴛ
         <hr className={styles.hr} />
-        <pre>{JSON.stringify(data, null, 2)}</pre>
         <form className={styles.form} onSubmit={(e)=>changeName(e)}>
           <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
           <input type="submit" hidden />
