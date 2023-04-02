@@ -5,6 +5,7 @@ import Head from "next/head"
 // Components
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 
 // Styles
 import styles from "@/styles/Home.module.scss";
@@ -44,6 +45,7 @@ const Home = ({data}: any) => {
           <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
           <input type="submit" hidden />
         </form>
+        <Footer />
       </main>
     </>
   )
