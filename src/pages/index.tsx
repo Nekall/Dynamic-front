@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/head"
+import Navbar from "@/components/Navbar";
 
 // Styles
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Home.module.scss";
 
 const Home = ({data}: any) => {
   const router = useRouter();
@@ -34,8 +35,7 @@ const Home = ({data}: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        ᴅʏɴᴀᴍɪᴄ ғʀᴏɴᴛ
-        <hr className={styles.hr} />
+        <Navbar />
         <form className={styles.form} onSubmit={(e)=>changeName(e)}>
           <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
           <input type="submit" hidden />

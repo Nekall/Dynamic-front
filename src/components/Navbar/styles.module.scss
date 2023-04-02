@@ -1,3 +1,18 @@
-.__navbar{
-    
+.__navbar {
+    display: inline-flex;
+    padding: 2%;
+    width: 100%;
+
+    .__logo {
+        font-size: 20px;
+        padding-right: 50px;
+    }
+
+    ul>li {
+        vertical-align: middle;
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
 }
