@@ -18,7 +18,7 @@ const Home = ({data}: any) => {
 
   const changeName = async (e: any) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/title", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/title`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -52,7 +52,7 @@ const Home = ({data}: any) => {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/title");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/title`);
   const data = await res.json();
 
   return {
