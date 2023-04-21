@@ -1,0 +1,36 @@
+.__drop_names {
+    width: 100vw;
+
+    h2 {
+        font-size: 3rem;
+        padding: 50px 0 80px 50px;
+    }
+
+    .__names {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-bottom: solid 1px grey;
+        border-top: solid 1px grey;
+
+        .__name {
+            padding: 120px 100px;
+            font-size: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(4),
+            &:nth-child(5) {
+                border-right: solid 1px grey;
+            }
+
+            &:nth-child(6),
+            &:nth-child(4),
+            &:nth-child(5) {
+                border-top: solid 1px grey;
+            }
+        }
+    }
+}
