@@ -1,3 +1,8 @@
+import Image from "next/image";
+
+// Assets
+import geometrical2 from "../../../public/images/geometrical/geometrical-2.gif";
+
 // Styles
 import styles from "./styles.module.scss";
 
@@ -22,7 +27,7 @@ const Hero = () => {
         </div>
       </div>
       <div className={styles.__illustration}>
-        <p>Logo</p>
+        <Image src={geometrical2} alt="image" width={350} />
       </div>
     </div>
   );

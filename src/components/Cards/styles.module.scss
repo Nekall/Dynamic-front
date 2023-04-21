@@ -1,0 +1,59 @@
+.__cards{
+
+    h2{
+        font-size: 3rem;
+        padding: 50px 0 80px 50px;
+    }
+
+    .__container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+        border-top: solid 1px grey;
+        border-bottom: solid 1px grey;
+
+        .__card{
+            padding: 50px;
+
+            &:nth-child(1), &:nth-child(2){
+                border-right: solid 1px grey;
+            }
+
+            .__title{
+                font-size: 2rem;
+                padding: 10px 0 50px 0;
+            }
+
+            img{
+                display: grid;
+                margin: 50px auto;
+            }
+    
+            button{
+                display: block;
+                background-color: transparent;
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: bold;
+                border: none;
+                padding-bottom: 10px;
+                border-bottom: solid 1px #fff;
+                cursor: pointer;
+
+                &:after{
+                    content: '>';
+                    display: inline-block;
+                    width: 0;
+                    height: 2px;
+                    background-color: #fff;
+                    margin-left: 6px;
+                }
+
+                &:hover{
+                    color: #000;
+                    border-bottom: solid 1px #000;
+                }
+            }
+        }
+    }
+}
