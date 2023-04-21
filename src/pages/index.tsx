@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Cards from "@/components/Cards";
+import Video from "@/components/Video";
 
 // Styles
 import styles from "@/styles/Home.module.scss";
@@ -43,6 +44,7 @@ const Home = ({data}: any) => {
         <Navbar />
         <Hero />
         <Cards />
+        <Video />
         <form className={styles.form} onSubmit={(e)=>changeName(e)}>
           <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
           <input type="submit" hidden />
