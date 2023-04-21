@@ -1,0 +1,59 @@
+.__prefooter {
+    margin-top: -250px;
+    width: 100vw;
+    height: 80vh;
+    padding: 50px;
+    background: rgb(31, 33, 35);
+    background: linear-gradient(180deg, rgba(31, 33, 35, 1) 0%, rgba(207, 207, 207, 1) 73%, rgba(255, 255, 255, 1) 97%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .__title {
+        color: #212121;
+        width: 500px;
+        padding-bottom: 50px;
+
+        h2 {
+            font-size: 3rem;
+            padding-bottom: 10px;
+        }
+
+        .__buttons {
+            padding-top: 50px;
+
+            button:nth-child(1) {
+                background-color: #e4b611;
+                text-transform: uppercase;
+                font-weight: bold;
+                border: solid 2px transparent;
+                padding: 10px 20px;
+                margin-right: 2%;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: transparent;
+                    border: solid 2px #e4b611;
+                    color: #e4b611;
+                }
+            }
+
+            button:nth-child(2) {
+                background-color: transparent;
+                color: #212121;
+                text-transform: uppercase;
+                font-weight: bold;
+                border: solid 2px #212121;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: #212121;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

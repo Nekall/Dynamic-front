@@ -10,6 +10,7 @@ import Cards from "@/components/Cards";
 import Video from "@/components/Video";
 import DropNames from "@/components/DropNames";
 import Reviews from "@/components/Reviews";
+import Prefooter from "@/components/Prefooter";
 
 // Styles
 import styles from "@/styles/Home.module.scss";
@@ -49,10 +50,11 @@ const Home = ({data}: any) => {
         <Video />
         <DropNames />
         <Reviews />
-        <form className={styles.form} onSubmit={(e)=>changeName(e)}>
+        <Prefooter />
+        {/*<form className={styles.form} onSubmit={(e)=>changeName(e)}>
           <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
           <input type="submit" hidden />
-        </form>
+        </form>*/}
         <Footer />
       </main>
     </>
