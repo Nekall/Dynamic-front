@@ -6,23 +6,28 @@ import geometrical2 from "../../../public/images/geometrical/geometrical-2.gif";
 // Styles
 import styles from "./styles.module.scss";
 
-const Hero = () => {
+interface HeroProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  cta1: string;
+  cta2: string;
+}
+
+const Hero = ({ title, subtitle, description, cta1, cta2 }: HeroProps) => {
   return (
     <div className={styles.__hero}>
       <div>
-        <p className={styles.__pretitle}>WHAT IS DYNAMIC FRONT ?</p>
+        <p className={styles.__pretitle}>{title}</p>
         <h1 className={styles.__title}>
-          DynamicFront is a Next.js landing page with a dynamic content.
+          {subtitle}
         </h1>
         <div className={styles.__details}>
           <p className={styles.__paragraph}>
-            lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            auctor, nisl nec ultricies lacinia, nisl nisl tincidunt nisl, nec
-            aliquet nisl nisl eu nisl. Sed tincidunt, nisl nec ultricies
-            lacinia.
+            {description}
           </p>
           <div className={styles.__buttons}>
-            <button>See more</button> <button>Lorem ipsum</button>
+            <button>{cta1}</button> <button>{cta2}</button>
           </div>
         </div>
       </div>

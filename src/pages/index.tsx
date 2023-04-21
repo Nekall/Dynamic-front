@@ -15,12 +15,12 @@ import Prefooter from "@/components/Prefooter";
 // Styles
 import styles from "@/styles/Home.module.scss";
 
-const Home = ({data}: any) => {
+const Home = ({ dataHero }: any) => {
   const router = useRouter();
-  const [title, setTitle] = useState(data.title);
+  //const [title, setTitle] = useState(data.title);
 
   const refreshData = () => router.replace(router.asPath);
-
+/*
   const changeName = async (e: any) => {
     e.preventDefault();
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/title`, {
@@ -34,7 +34,7 @@ const Home = ({data}: any) => {
     console.log(data);
     refreshData();
   }
-
+*/
   return (
     <>
       <Head>
@@ -45,7 +45,7 @@ const Home = ({data}: any) => {
       </Head>
       <main className={styles.main}>
         <Navbar />
-        <Hero />
+        <Hero title={dataHero.title} subtitle={dataHero.subtitle} description={dataHero.description} cta1={dataHero.cta1} cta2={dataHero.cta2} />
         <Cards />
         <Video />
         <DropNames />
@@ -62,12 +62,15 @@ const Home = ({data}: any) => {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/title`);
-  const data = await res.json();
+  //const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/title`);
+  //const data = await res.json();
+
+  const resHero = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hero`);
+  const dataHero = await resHero.json();
 
   return {
     props: {
-      data
+      dataHero
     }
   }
 }
