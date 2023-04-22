@@ -15,7 +15,7 @@ import Prefooter from "@/components/Prefooter";
 // Styles
 import styles from "@/styles/Home.module.scss";
 
-const Home = ({ dataHero, dataReviews, dataPrefooter, dataFooter }: any) => {
+const Home = ({ dataHero, dataDropnames, dataReviews, dataPrefooter, dataFooter }: any) => {
   const router = useRouter();
   //const [title, setTitle] = useState(data.title);
 
@@ -48,7 +48,7 @@ const Home = ({ dataHero, dataReviews, dataPrefooter, dataFooter }: any) => {
         <Hero title={dataHero.title} subtitle={dataHero.subtitle} description={dataHero.description} cta1={dataHero.cta1} cta2={dataHero.cta2} />
         <Cards />
         <Video />
-        <DropNames />
+        <DropNames title={dataDropnames.title} names={dataDropnames.names} />
         <Reviews title={dataReviews.title} reviews={dataReviews.reviews}  />
         <Prefooter title={dataPrefooter.title} description={dataPrefooter.description} cta1={dataPrefooter.cta1} cta2={dataPrefooter.cta2} />
         {/*<form className={styles.form} onSubmit={(e)=>changeName(e)}>
@@ -69,10 +69,13 @@ export async function getServerSideProps() {
   const resHero = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hero`);
   const dataHero = await resHero.json();
 
+  // DropNames
+  const resDropnames = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dropnames`);
+  const dataDropnames = await resDropnames.json();
+
   // Reviews
   const resReviews = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews`);
   const dataReviews = await resReviews.json();
-
 
   // PreFooter
   const resPrefooter = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/prefooter`);
@@ -85,6 +88,7 @@ export async function getServerSideProps() {
   return {
     props: {
       dataHero,
+      dataDropnames,
       dataReviews,
       dataPrefooter,
       dataFooter

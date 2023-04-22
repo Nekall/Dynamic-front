@@ -1,15 +1,12 @@
 // Styles
 import styles from "./styles.module.scss";
 
-const DropNames = () => {
-  const names = [
-    "Lorem",
-    "Ipsum",
-    "Dolor",
-    "Architecto",
-    "Consectetur",
-    "Amet",
-  ];
+interface DropNamesProps {
+  title: string;
+  names: string[];
+}
+
+const DropNames = ({ title, names }: DropNamesProps) => {
 
   return (
     <section className={styles.__drop_names}>
