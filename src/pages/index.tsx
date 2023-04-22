@@ -15,7 +15,7 @@ import Prefooter from "@/components/Prefooter";
 // Styles
 import styles from "@/styles/Home.module.scss";
 
-const Home = ({ dataHero, dataPrefooter, dataFooter }: any) => {
+const Home = ({ dataHero, dataReviews, dataPrefooter, dataFooter }: any) => {
   const router = useRouter();
   //const [title, setTitle] = useState(data.title);
 
@@ -49,7 +49,7 @@ const Home = ({ dataHero, dataPrefooter, dataFooter }: any) => {
         <Cards />
         <Video />
         <DropNames />
-        <Reviews />
+        <Reviews title={dataReviews.title} reviews={dataReviews.reviews}  />
         <Prefooter title={dataPrefooter.title} description={dataPrefooter.description} cta1={dataPrefooter.cta1} cta2={dataPrefooter.cta2} />
         {/*<form className={styles.form} onSubmit={(e)=>changeName(e)}>
           <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
@@ -69,6 +69,11 @@ export async function getServerSideProps() {
   const resHero = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hero`);
   const dataHero = await resHero.json();
 
+  // Reviews
+  const resReviews = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews`);
+  const dataReviews = await resReviews.json();
+
+
   // PreFooter
   const resPrefooter = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/prefooter`);
   const dataPrefooter = await resPrefooter.json();
@@ -80,6 +85,7 @@ export async function getServerSideProps() {
   return {
     props: {
       dataHero,
+      dataReviews,
       dataPrefooter,
       dataFooter
     }
