@@ -1,0 +1,9 @@
+{
+  "links": [
+    { "name": "Home" },
+    { "name": "About" },
+    { "name": "Contact" },
+    { "name": "Blog" },
+    { "name": "Careers" }
+  ]
+}

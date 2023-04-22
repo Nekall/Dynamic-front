@@ -15,7 +15,7 @@ import Prefooter from "@/components/Prefooter";
 // Styles
 import styles from "@/styles/Home.module.scss";
 
-const Home = ({ dataHero }: any) => {
+const Home = ({ dataHero, dataFooter }: any) => {
   const router = useRouter();
   //const [title, setTitle] = useState(data.title);
 
@@ -55,7 +55,7 @@ const Home = ({ dataHero }: any) => {
           <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
           <input type="submit" hidden />
         </form>*/}
-        <Footer />
+        <Footer links={dataFooter.links} />
       </main>
     </>
   )
@@ -65,12 +65,18 @@ export async function getServerSideProps() {
   //const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/title`);
   //const data = await res.json();
 
+  // Hero
   const resHero = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hero`);
   const dataHero = await resHero.json();
 
+  // Footer
+  const resFooter = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/footer`);
+  const dataFooter = await resFooter.json();
+
   return {
     props: {
-      dataHero
+      dataHero,
+      dataFooter
     }
   }
 }
