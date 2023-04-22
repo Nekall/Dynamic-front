@@ -1,19 +1,24 @@
 // Styles
 import styles from "./styles.module.scss";
 
-const Prefooter = () => {
+interface PrefooterProps {
+  title: string;
+  description: string;
+  cta1: string;
+  cta2: string;
+}
+
+const Prefooter = ({ title, description, cta1, cta2 }: PrefooterProps) => {
   return (
     <section className={styles.__prefooter}>
       <div className={styles.__title}>
-        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+        <h2>{title}</h2>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat
-          incidunt quod non ab aperiam eligendi harum quo perferendis fugit
-          amet.
+          {description}
         </p>
         <div className={styles.__buttons}>
-          <button>Lorem ipsum</button>
-          <button>Consectetur</button>
+          <button>{cta1}</button>
+          <button>{cta2}</button>
         </div>
       </div>
     </section>
