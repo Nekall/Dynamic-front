@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Head from "next/head"
+import Head from "next/head";
 
 // Components
 import Navbar from "@/components/Navbar";
@@ -15,12 +15,19 @@ import Prefooter from "@/components/Prefooter";
 // Styles
 import styles from "@/styles/Home.module.scss";
 
-const Home = ({ dataHero, dataDropnames, dataReviews, dataPrefooter, dataFooter }: any) => {
+const Home = ({
+  dataHero,
+  dataVideo,
+  dataDropnames,
+  dataReviews,
+  dataPrefooter,
+  dataFooter,
+}: any) => {
   const router = useRouter();
   //const [title, setTitle] = useState(data.title);
 
   const refreshData = () => router.replace(router.asPath);
-/*
+  /*
   const changeName = async (e: any) => {
     e.preventDefault();
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/title`, {
@@ -45,12 +52,23 @@ const Home = ({ dataHero, dataDropnames, dataReviews, dataPrefooter, dataFooter 
       </Head>
       <main className={styles.main}>
         <Navbar />
-        <Hero title={dataHero.title} subtitle={dataHero.subtitle} description={dataHero.description} cta1={dataHero.cta1} cta2={dataHero.cta2} />
+        <Hero
+          title={dataHero.title}
+          subtitle={dataHero.subtitle}
+          description={dataHero.description}
+          cta1={dataHero.cta1}
+          cta2={dataHero.cta2}
+        />
         <Cards />
-        <Video />
+        <Video title={dataVideo.title} subtitle={dataVideo.subtitle} />
         <DropNames title={dataDropnames.title} names={dataDropnames.names} />
-        <Reviews title={dataReviews.title} reviews={dataReviews.reviews}  />
-        <Prefooter title={dataPrefooter.title} description={dataPrefooter.description} cta1={dataPrefooter.cta1} cta2={dataPrefooter.cta2} />
+        <Reviews title={dataReviews.title} reviews={dataReviews.reviews} />
+        <Prefooter
+          title={dataPrefooter.title}
+          description={dataPrefooter.description}
+          cta1={dataPrefooter.cta1}
+          cta2={dataPrefooter.cta2}
+        />
         {/*<form className={styles.form} onSubmit={(e)=>changeName(e)}>
           <input className={styles.title} type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
           <input type="submit" hidden />
@@ -58,8 +76,8 @@ const Home = ({ dataHero, dataDropnames, dataReviews, dataPrefooter, dataFooter 
         <Footer links={dataFooter.links} />
       </main>
     </>
-  )
-}
+  );
+};
 
 export async function getServerSideProps() {
   //const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/title`);
@@ -69,8 +87,14 @@ export async function getServerSideProps() {
   const resHero = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hero`);
   const dataHero = await resHero.json();
 
+  // Video
+  const resVideo = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/video`);
+  const dataVideo = await resVideo.json();
+
   // DropNames
-  const resDropnames = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dropnames`);
+  const resDropnames = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/dropnames`
+  );
   const dataDropnames = await resDropnames.json();
 
   // Reviews
@@ -78,7 +102,9 @@ export async function getServerSideProps() {
   const dataReviews = await resReviews.json();
 
   // PreFooter
-  const resPrefooter = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/prefooter`);
+  const resPrefooter = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/prefooter`
+  );
   const dataPrefooter = await resPrefooter.json();
 
   // Footer
@@ -88,12 +114,13 @@ export async function getServerSideProps() {
   return {
     props: {
       dataHero,
+      dataVideo,
       dataDropnames,
       dataReviews,
       dataPrefooter,
-      dataFooter
-    }
-  }
+      dataFooter,
+    },
+  };
 }
 
 export default Home;
