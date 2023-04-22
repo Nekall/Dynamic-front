@@ -17,6 +17,7 @@ import styles from "@/styles/Home.module.scss";
 
 const Home = ({
   dataHero,
+  dataCards,
   dataVideo,
   dataDropnames,
   dataReviews,
@@ -59,7 +60,7 @@ const Home = ({
           cta1={dataHero.cta1}
           cta2={dataHero.cta2}
         />
-        <Cards />
+        <Cards title={dataCards.title} cards={dataCards.cards} />
         <Video title={dataVideo.title} subtitle={dataVideo.subtitle} />
         <DropNames title={dataDropnames.title} names={dataDropnames.names} />
         <Reviews title={dataReviews.title} reviews={dataReviews.reviews} />
@@ -86,6 +87,10 @@ export async function getServerSideProps() {
   // Hero
   const resHero = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hero`);
   const dataHero = await resHero.json();
+
+  // Cards
+  const resCards = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cards`);
+  const dataCards = await resCards.json();
 
   // Video
   const resVideo = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/video`);
@@ -114,6 +119,7 @@ export async function getServerSideProps() {
   return {
     props: {
       dataHero,
+      dataCards,
       dataVideo,
       dataDropnames,
       dataReviews,

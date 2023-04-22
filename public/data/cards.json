@@ -1,0 +1,20 @@
+{
+  "title": "Lorem ipsum dolor sit amet consectetur",
+  "cards": [
+    {
+      "title": "Lorem ipsum dolor",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies ultricies, nunc elit lacinia nisl, vitae aliquam nisl nunc et lorem. Sed euismod, nisl nec ultricies ultricies, nunc elit lacinia nisl, vitae aliquam nisl nunc et lorem.",
+      "button": "Learn More"
+    },
+    {
+      "title": "Consectetur adipiscing",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies ultricies, nunc elit lacinia nisl, vitae aliquam nisl nunc et lorem. Sed euismod, nisl nec ultricies ultricies, nunc elit lacinia nisl, vitae aliquam nisl nunc et lorem.",
+      "button": "Learn More"
+    },
+    {
+      "title": "Sed euismod",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies ultricies, nunc elit lacinia nisl, vitae aliquam nisl nunc et lorem. Sed euismod, nisl nec ultricies ultricies, nunc elit lacinia nisl, vitae aliquam nisl nunc et lorem.",
+      "button": "Learn More"
+    }
+  ]
+}
